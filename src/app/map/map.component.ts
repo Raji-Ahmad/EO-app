@@ -10,8 +10,10 @@ import {
   icon,
   Control, Polygon
 } from "leaflet";
+import "leaflet-draw"
 import {LeafletModule} from "@asymmetrik/ngx-leaflet";
 import {LeafletDrawModule} from '@asymmetrik/ngx-leaflet-draw';
+
 import {DrawEvents} from "leaflet"
 // import "leaflet-draw"
 

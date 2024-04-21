@@ -64,7 +64,7 @@ export class HomeComponent {
             values (close to -1) correspond to areas free of vegetation.
 
           </p>`,
-      link: '/lst'
+      link: '/ndvi'
     },
     {
       title: 'NDWI',
@@ -85,7 +85,7 @@ export class HomeComponent {
             The result of the NDWI equation is positive values for water features and negative ones (or zero) for soil and terrestrial vegetation.
 
           </p>`,
-      link: '/lst'
+      link: '/ndwi'
     },
     {
       title: 'Land Cover',
@@ -107,7 +107,7 @@ export class HomeComponent {
 
 
           </p>`,
-      link: '/lst'
+      link: '/land-cover'
     },
     {
       title: 'LST',
