@@ -1,0 +1,126 @@
+@if (isHandset) {
+  <div class="relative p-1 flex flex-1 w-full">
+    <form [formGroup]="form" class=" flex w-full flex-row content-start" (ngSubmit)="onSubmit()">
+      <mat-tab-group [mat-stretch-tabs]="false" mat-align-tabs="start" style="width: 100%">
+        <mat-tab label="Data">
+          <mat-form-field matTooltip="Choose a date range">
+            <mat-label>Enter a date range</mat-label>
+            <mat-date-range-input [rangePicker]="picker">
+              <input matStartDate formControlName="sdate" placeholder="Start date">
+              <input matEndDate formControlName="edate" placeholder="End date">
+            </mat-date-range-input>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+          </mat-form-field>
+          <mat-form-field  matTooltip="Choose a sensor">
+            <mat-label>Select Sensor</mat-label>
+            <mat-select [disabled]="noSensor" formControlName='sensor'>
+              <mat-option value="1">Sentinel</mat-option>
+              <mat-option value="2">Landsat</mat-option>
+              <mat-option value="3">Modis</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-tab>
+        <mat-tab label="State AOI">
+          <h5>Optional, defaults to Nigeria</h5>
+          <mat-form-field matTooltip="Set AOI to defined state boundary">
+            <mat-label>Select Nigerian state</mat-label>
+            <mat-select formControlName='state'>
+
+              <mat-option *ngFor="let state of states;" [value]="state.objectid">{{state.admin1name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-tab>
+        <mat-tab label="upload AOI">
+          <h5>Optional, defaults to Nigeria</h5>
+          <div class="mx-3  rounded-list-item file-container" style="width: 70%" matTooltip="Choose geojson or zipped shapefile">
+            <input type="file" class="file-input"
+                   (change)="onFileSelected($event)" #fileUpload formControlName="aoi">
+
+            <div class="file-upload h-full">
+
+              <div style="font-size: small; overflow: hidden; width:100%" class="px-1 h-full">
+                <p style="width: 90%" class="overflow-hidden h-7 ma-0 p-1">{{ file?.name || "Upload AOI file." }}</p>
+                <button type="button" class="px-1 upload-btn"
+                        (click)="fileUpload.click()">
+
+                  <mat-icon aria-hidden="false" aria-label="icon" fontIcon="attachment"></mat-icon>
+
+                </button>
+
+              </div>
+
+
+            </div>
+
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+<!--      <div class="mx-3 sub-but flex flex-row items-center">-->
+        <button mat-raised-button type="submit" color="primary" class="absolute bottom-0 right-4">Run</button>
+<!--      </div>-->
+    </form>
+  </div>
+} @else {
+  <div class="p-0 flex-1">
+    <form [formGroup]="form" class="flex flex-row content-start" (ngSubmit)="onSubmit()">
+      <div>
+        <mat-form-field matTooltip="Choose a date range">
+          <mat-label>Enter a date range</mat-label>
+          <mat-date-range-input [rangePicker]="picker">
+            <input matStartDate formControlName="sdate" placeholder="Start date">
+            <input matEndDate formControlName="edate" placeholder="End date">
+          </mat-date-range-input>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
+      </div>
+
+      <!--            <mat-date-range-picker  #picker></mat-date-range-picker>-->
+
+      <mat-form-field matTooltip="Choose a sensor">
+        <mat-label>Select Sensor</mat-label>
+        <mat-select [disabled]="noSensor" formControlName='sensor'>
+          <mat-option value="1">Sentinel</mat-option>
+          <mat-option value="2">Landsat</mat-option>
+          <mat-option value="3">Modis</mat-option>
+        </mat-select>
+
+      </mat-form-field>
+
+      <mat-form-field matTooltip="Set AOI to defined state boundary">
+        <mat-label>Select Nigerian state</mat-label>
+        <mat-select formControlName='state'>
+          <mat-option *ngFor="let state of states;" [value]="state.objectid">{{state.admin1name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="mx-1  rounded-list-item file-container" matTooltip="Choose geojson or zipped shapefile" style="width: max(17vw, 10rem)">
+        <input type="file" class="file-input"
+               (change)="onFileSelected($event)" #fileUpload formControlName="aoi">
+
+        <div class="file-upload h-full" style="width: 100%;">
+
+          <div style="font-size: small; overflow: hidden; width:100%" class="px-1 h-full">
+            <p style="width: 90%" class="overflow-hidden h-7 ma-0 p-1">{{ file?.name || "Upload AOI file." }}</p>
+            <button type="button" class="px-1 upload-btn"
+                    (click)="fileUpload.click()">
+
+              <mat-icon aria-hidden="false" aria-label="icon" fontIcon="attachment"></mat-icon>
+
+            </button>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+      <div class="mx-1 sub-but flex flex-row items-center">
+        <button mat-raised-button type="submit" color="primary">Run</button>
+      </div>
+    </form>
+
+  </div>
+}

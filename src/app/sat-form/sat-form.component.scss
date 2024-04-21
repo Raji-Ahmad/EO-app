@@ -1,0 +1,50 @@
+:host{
+  display: flex;
+}
+
+mat-form-field{
+  margin: 0 3px;
+}
+
+.file-input {
+  display: none;
+}
+
+.file-container{
+  //width: 10rem;
+  height: 3.5rem;
+  background-color: var(--mdc-filled-text-field-container-color);
+  //flex: 1 1;
+}
+
+.sub-but{
+  height: 3.7rem;
+}
+
+.ma-0{
+  margin: 0;
+}
+
+.absolute{
+  position: absolute!important;
+}
+
+h5{
+  margin-bottom: 3px !important;
+}
+
+//mat-form-field, .file-container {
+//  width: max(17vw, 10rem);
+//  font-size: 10px
+//}
+///* Reduce the font size of the tab labels */
+//.mat-tab-label {
+//  font-size: 12px; /* Adjust the font size as needed */
+//}
+//
+///* Reduce the padding of the tab labels */
+//.mat-tab-label-content {
+//  padding: 4px; /* Adjust the padding as needed */
+//}
+
+

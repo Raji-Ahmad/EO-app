@@ -1,0 +1,51 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" style="width: 14rem"
+               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+               [mode]="(isHandset$ | async) ? 'over' : 'side'"
+               [opened]="(isHandset$ | async) === false">
+    <!--    <mat-toolbar>Menu</mat-toolbar>-->
+    <mat-toolbar *ngIf="isHandset$ | async" style="height: 2em">
+      @if (isHandset$ | async) {
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+      }
+      <!--      <span>fe</span>-->
+    </mat-toolbar>
+
+    <!--    <mat-nav-list>-->
+    <!--      <a mat-list-item href="#">Link 1</a>-->
+    <!--      <a mat-list-item href="#">Link 2</a>-->
+    <!--      <a mat-list-item href="#">Link 3</a>-->
+    <!--    </mat-nav-list>-->
+    <ng-content select="[left]"></ng-content>
+  </mat-sidenav>
+  <mat-sidenav-content class="" style="height: 100%; width100%;">
+    <div class="flex flex-col h-full p-0 m-0">
+      <div class="">
+        <!--      <ng-content select="[top]">-->
+
+        <!--    </ng-content>-->
+        <mat-toolbar id='right-tool' *ngIf="isHandset$ | async" style="height: 70%">
+          @if (isHandset$ | async) {
+            <button
+              type="button"
+              aria-label="Toggle sidenav"
+              mat-icon-button
+              (click)="drawer.toggle()">
+              <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+            </button>
+          }
+        </mat-toolbar>
+      </div>
+      <!-- Add Content Here -->
+      <div class="flex flex-1" style="">
+        <ng-content select="[right]"></ng-content>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,33 @@
+<div class=" flex-1 items-center">
+<!--  <mat-grid-list cols="3" rowHeight="fit" class="h-full">-->
+
+<!--    @for (card of cards; track $index){-->
+<!--      <mat-grid-tile>-->
+  <div class="responsive-grid">
+    @for (card of cards; track $index){
+    <mat-card class="m-2">
+        <mat-card-header class="justify-center">
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title class="text-center">{{ card.title }}</mat-card-title>
+          <mat-card-subtitle>{{ card.sub_title }}</mat-card-subtitle>
+        </mat-card-header>
+
+        <img class="center" mat-card-lg-image src="{{card.img}}" alt="Photo of {{card.title}}">
+        <mat-card-content>
+          <h5 [innerHTML]="card.desc">
+
+          </h5>
+
+        </mat-card-content>
+        <mat-card-actions>
+          <a [routerLink]="card.link">
+            <button mat-button>OPEN</button>
+          </a>
+
+          <button mat-button [cdkCopyToClipboard]="location.origin + card.link " (click)="alert('Copied url')">SHARE</button>
+        </mat-card-actions>
+      </mat-card>
+    }
+  </div>
+
+</div>

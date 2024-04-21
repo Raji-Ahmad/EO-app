@@ -1,0 +1,11 @@
+<div class="flex-1 p-1" style="height: 100%;"
+     leaflet
+     leafletDraw
+     [leafletDrawOptions]="drawOptions"
+     (leafletDrawCreated)="onDrawCreated($event)"
+     [leafletOptions]="options"
+     [leafletLayersControl]="layersControl">
+
+  <div [leafletLayer]="drawnItems"></div>
+
+</div>

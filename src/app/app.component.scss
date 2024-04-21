@@ -1,0 +1,18 @@
+:host {
+  flex: 1;
+  display: flex;
+
+}
+
+.rounded-list-item {
+  border-radius: 0.5rem; /* Adjust the border radius as needed */
+  border-color: var(--mat-divider-color);
+  border-width: 1px;
+}
+
+.centered{
+  display: flex;
+  align-items: center;
+}
+
+

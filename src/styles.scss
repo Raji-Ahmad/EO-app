@@ -1,1 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@import "@angular/material/prebuilt-themes/purple-green.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'leaflet/dist/leaflet.css';
+@import 'leaflet-draw/dist/leaflet.draw.css';
+
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+html, body {
+  min-height: 100vh;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.rounded-list-item {
+  border-radius: 0.5rem; /* Adjust the border radius as needed */
+  border-color: var(--mat-divider-color);
+  border-width: 1px;
+}
+//
+//$custom-typography: (
+//  font-size: 8px, // Adjust the font size as needed
+//);
+//
+$my-theme: mat.define-light-theme((
+  //typography: $custom-typography,
+  density: 0,
+));
+
+@include mat.core-theme($my-theme);
+@include mat.all-component-themes($my-theme);
+
+//.the-dense-zone {
+//  @include mat.button-density(-1);
+//  @include mat.all-component-densities(-2);
+//}

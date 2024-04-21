@@ -1,0 +1,16 @@
+:host{
+  flex-grow: 1;
+  display: flex;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%; /* or any other percentage */
+}
+
+.responsive-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+}

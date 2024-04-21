@@ -1,0 +1,31 @@
+<div [class.disabled]="isLoading()">
+  <div class="flex justify-center">
+    <h2 style="margin-bottom: 2px !important;"> {{ title }} Map</h2>
+  </div>
+
+  <app-analytics-grid>
+    <div top class="flex flex-1">
+
+      <app-sat-form [noSensor]="noSensor" (formSubmit)="formSubmitted($event)" (formFile)="fileUpdate($event)"
+                    class="flex-1"></app-sat-form>
+
+    </div>
+
+    <div class="flex flex-1" mid>
+      <app-map #themap [themeLayerURL]="themeLayer" (drawnFilter)="drawnFilterHandle($event)">
+
+      </app-map>
+
+    </div>
+
+    <div end>
+      @if (hist()) {
+        <app-hist [data]="hist" [title]="title" [colors]="colors" [disableLabels]="disableLabels"
+                  [disableLegend]="disableLegend"></app-hist>
+
+      }
+
+
+    </div>
+  </app-analytics-grid>
+</div>
