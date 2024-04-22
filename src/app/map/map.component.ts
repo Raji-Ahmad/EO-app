@@ -32,7 +32,7 @@ export class MapComponent {
   drawnItems: FeatureGroup = featureGroup();
 
   @Input() themeLayerURL = signal<string>('')
-  @Output() drawnFilter: EventEmitter<Polygon> = new EventEmitter<Polygon>()
+  @Output() drawnFilter: EventEmitter<Polygon|null> = new EventEmitter<Polygon|null>()
 
   themeLayer = computed(() => tileLayer(this.themeLayerURL(), {
     maxZoom: 18,
@@ -95,6 +95,10 @@ export class MapComponent {
     this.drawnItems.addLayer((e as DrawEvents.Created).layer);
     const poly:Polygon = (e as DrawEvents.Created).layer as Polygon
     this.drawnFilter.emit(poly)
+  }
+
+  public onDrawDeleted(e:any){
+    this.drawnFilter.emit(null)
   }
 
 

@@ -170,7 +170,7 @@ export class EOPageComponent {
     });
   }
 
-  drawnFilterHandle(layer: Polygon){
+  drawnFilterHandle(layer: Polygon|null){
     this.drawnFilter = layer
   }
 }

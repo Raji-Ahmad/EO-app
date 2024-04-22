@@ -3,6 +3,7 @@
      leafletDraw
      [leafletDrawOptions]="drawOptions"
      (leafletDrawCreated)="onDrawCreated($event)"
+     (leafletDrawDeleted)="onDrawDeleted($event)"
      [leafletOptions]="options"
      [leafletLayersControl]="layersControl">
 
