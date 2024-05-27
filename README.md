@@ -1,4 +1,6 @@
-# EO
+# EO is an Earth Obserwation web app built with Angular. The frontend consumes another API craeted by my using django and google earth engine.
+
+# This simple Earth Observation web application that computes NDVI, NDWI, LST and land cover with some statistics and graph. The app is published here https://swift-eo.web.app/
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.10.
 
